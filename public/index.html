@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Gerador de Conteúdos para Instagram</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topo">
+    <div>
+      <h1>💊 Gerador de Conteúdos para Instagram</h1>
+      <p class="sub">Legendas, carrosséis, Reels, Stories e artes prontas — com foco em farmácia e saúde.</p>
+    </div>
+    <span id="modo" class="selo">Verificando modo…</span>
+  </header>
+
+  <nav class="abas" role="tablist">
+    <button class="aba ativa" data-aba="gerar" role="tab">✨ Gerar conteúdo</button>
+    <button class="aba" data-aba="calendario" role="tab">📅 Calendário editorial</button>
+    <button class="aba" data-aba="historico" role="tab">🕘 Histórico</button>
+  </nav>
+
+  <main>
+    <!-- ===================== GERAR ===================== -->
+    <section id="aba-gerar" class="painel-aba ativo">
+      <form id="form" class="cartao formulario">
+        <h2>Briefing</h2>
+
+        <label>Tema do conteúdo *
+          <input name="tema" id="tema" required placeholder="Ex.: descarte de medicamentos" list="temas-prontos">
+          <datalist id="temas-prontos"></datalist>
+        </label>
+        <div class="chips" id="chips-temas" aria-label="Temas prontos"></div>
+
+        <div class="grade-2">
+          <label>Formato
+            <select name="formato">
+              <option value="carrossel">Carrossel</option>
+              <option value="post">Post único</option>
+              <option value="reels">Reels (roteiro)</option>
+              <option value="stories">Stories (sequência)</option>
+            </select>
+          </label>
+          <label>Nº de slides
+            <input type="number" name="numSlides" min="3" max="10" value="7">
+          </label>
+        </div>
+
+        <div class="grade-2">
+          <label>Objetivo
+            <select name="objetivo">
+              <option value="educar">Educar</option>
+              <option value="engajar">Engajar</option>
+              <option value="autoridade">Gerar autoridade</option>
+              <option value="vender">Divulgar serviço</option>
+              <option value="bastidores">Bastidores</option>
+            </select>
+          </label>
+          <label>Tom de voz
+            <select name="tom">
+              <option value="acolhedor">Acolhedor</option>
+              <option value="tecnico">Técnico</option>
+              <option value="descontraido">Descontraído</option>
+              <option value="inspirador">Inspirador</option>
+            </select>
+          </label>
+        </div>
+
+        <label>Nicho
+          <select name="nicho">
+            <option value="farmacia">Farmácia / Farmacêutica</option>
+            <option value="saude">Saúde em geral</option>
+            <option value="estetica">Estética / Dermocosméticos</option>
+            <option value="nutricao">Nutrição</option>
+            <option value="negocio">Negócio local</option>
+            <option value="outro">Outro</option>
+          </select>
+        </label>
+
+        <label>Público-alvo
+          <input name="publico" placeholder="Ex.: idosos, mães, pessoas com diabetes">
+        </label>
+
+        <div class="grade-2">
+          <label>Marca / seu nome
+            <input name="marca" placeholder="Ex.: Farmácia Bem Viver">
+          </label>
+          <label>@ do perfil
+            <input name="handle" placeholder="@seuperfil">
+          </label>
+        </div>
+
+        <label>Cidade (para hashtags locais)
+          <input name="cidade" placeholder="Ex.: Campinas">
+        </label>
+
+        <label>Observações extras <small>(usadas no modo IA)</small>
+          <textarea name="extra" rows="2" placeholder="Ex.: mencionar que fazemos aferição de pressão grátis às quartas"></textarea>
+        </label>
+
+        <label class="check" id="linha-ia">
+          <input type="checkbox" name="usarIA" id="usarIA"> Usar IA (Claude) para escrever
+        </label>
+
+        <button type="submit" class="botao principal" id="botao-gerar">Gerar conteúdo</button>
+        <p id="erro" class="erro" hidden></p>
+      </form>
+
+      <section id="resultado" class="cartao resultado vazio">
+        <div class="placeholder">
+          <p>👈 Preencha o briefing ou escolha um tema pronto e clique em <strong>Gerar conteúdo</strong>.</p>
+        </div>
+      </section>
+    </section>
+
+    <!-- ===================== CALENDÁRIO ===================== -->
+    <section id="aba-calendario" class="painel-aba">
+      <div class="cartao">
+        <h2>Calendário editorial</h2>
+        <p class="sub">Gere um plano de publicações alternando formatos e objetivos. Clique em um dia para gerar o conteúdo.</p>
+        <form id="form-calendario" class="linha">
+          <label>Início <input type="date" name="inicio" id="cal-inicio"></label>
+          <label>Duração
+            <select name="dias">
+              <option value="7">7 dias</option>
+              <option value="14">14 dias</option>
+              <option value="30">30 dias</option>
+            </select>
+          </label>
+          <label class="cresce">Temas (um por linha — opcional)
+            <textarea name="temas" rows="2" placeholder="Deixe vazio para usar os temas prontos"></textarea>
+          </label>
+          <button class="botao principal" type="submit">Montar calendário</button>
+        </form>
+        <div id="calendario" class="calendario"></div>
+        <div class="acoes" id="acoes-calendario" hidden>
+          <button class="botao" id="exportar-csv">⬇️ Exportar CSV</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== HISTÓRICO ===================== -->
+    <section id="aba-historico" class="painel-aba">
+      <div class="cartao">
+        <div class="linha-titulo">
+          <h2>Histórico</h2>
+          <button class="botao" id="limpar-historico">Limpar histórico</button>
+        </div>
+        <p class="sub">Os conteúdos gerados ficam salvos neste navegador.</p>
+        <ul id="lista-historico" class="historico"></ul>
+      </div>
+    </section>
+  </main>
+
+  <template id="tpl-resultado">
+    <div class="resultado-topo">
+      <h2 data-campo="titulo"></h2>
+      <span class="selo pequeno" data-campo="origem"></span>
+    </div>
+    <nav class="subabas">
+      <button class="subaba ativa" data-sub="legenda">Legenda</button>
+      <button class="subaba" data-sub="artes">Artes</button>
+      <button class="subaba" data-sub="roteiro">Roteiro</button>
+      <button class="subaba" data-sub="dicas">Dicas e checagem</button>
+    </nav>
+
+    <div class="sub-painel ativo" data-painel="legenda">
+      <textarea class="legenda" data-campo="legenda" rows="16"></textarea>
+      <div class="contadores"><span data-campo="contador"></span></div>
+      <h3>Hashtags</h3>
+      <textarea class="hashtags" data-campo="hashtags" rows="3"></textarea>
+      <div class="acoes">
+        <button class="botao" data-acao="copiar-legenda">📋 Copiar legenda</button>
+        <button class="botao" data-acao="copiar-tudo">📋 Copiar legenda + hashtags</button>
+        <button class="botao" data-acao="baixar-txt">⬇️ Baixar .txt</button>
+      </div>
+    </div>
+
+    <div class="sub-painel" data-painel="artes">
+      <div class="linha">
+        <label>Paleta <select data-campo="paleta"></select></label>
+        <label>Tamanho <select data-campo="tamanho"></select></label>
+        <button class="botao" data-acao="baixar-artes">⬇️ Baixar todas (PNG)</button>
+      </div>
+      <p class="sub">Clique no texto de um slide para editá-lo. As artes se atualizam na hora.</p>
+      <div class="artes" data-campo="artes"></div>
+    </div>
+
+    <div class="sub-painel" data-painel="roteiro">
+      <div data-campo="roteiro"></div>
+    </div>
+
+    <div class="sub-painel" data-painel="dicas">
+      <div data-campo="conformidade"></div>
+      <dl class="dicas">
+        <dt>🎨 Sugestão visual</dt><dd data-campo="sugestaoVisual"></dd>
+        <dt>♿ Texto alternativo</dt><dd data-campo="textoAlternativo"></dd>
+        <dt>⏰ Melhor horário</dt><dd data-campo="melhorHorario"></dd>
+        <dt>📝 Observações</dt><dd><ul data-campo="observacoes"></ul></dd>
+      </dl>
+    </div>
+  </template>
+
+  <footer class="rodape">
+    Conteúdo de saúde é informativo: revise sempre antes de publicar e siga o Código de Ética Farmacêutica e as normas da Anvisa.
+  </footer>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>

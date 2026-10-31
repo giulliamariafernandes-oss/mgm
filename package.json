@@ -1,0 +1,17 @@
+{
+  "name": "gerador-conteudo-instagram",
+  "version": "1.0.0",
+  "description": "Gerador de conteúdos para Instagram com foco em farmácia e saúde: legendas, carrosséis, roteiros de Reels, Stories, artes e calendário editorial.",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^1.3.0"
+  }
+}
