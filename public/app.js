@@ -200,6 +200,13 @@ function renderizarResultado() {
     li.textContent = o;
     obs.append(li);
   }
+  const fontes = campo("fontes");
+  const listaFontes = conteudo.fontes?.length ? conteudo.fontes : ["Sem fontes registradas para este conteúdo. Pesquise em fontes oficiais antes de publicar."];
+  for (const f of listaFontes) {
+    const li = document.createElement("li");
+    li.textContent = f;
+    fontes.append(li);
+  }
 
   atualizarContador();
   caixa.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -340,6 +347,7 @@ function baixarTxt() {
   ];
   if (conteudo.roteiroReels?.length) partes.push("", "ROTEIRO REELS:", ...conteudo.roteiroReels.map((c) => `[${c.tempo}] ${c.cena} | ${c.fala}`));
   if (conteudo.stories?.length) partes.push("", "STORIES:", ...conteudo.stories.map((s, i) => `${i + 1}. (${s.tipo}) ${s.texto}`));
+  if (conteudo.fontes?.length) partes.push("", "FONTES:", ...conteudo.fontes.map((f) => `- ${f}`));
   partes.push("", `TEXTO ALTERNATIVO: ${conteudo.textoAlternativo}`, `MELHOR HORÁRIO: ${conteudo.melhorHorario}`);
   const blob = new Blob([partes.join("\n")], { type: "text/plain;charset=utf-8" });
   const link = document.createElement("a");

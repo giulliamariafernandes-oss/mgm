@@ -2,7 +2,10 @@
 // Funciona no navegador e no Node (usado nos testes).
 
 // ---------------------------------------------------------------------------
-// Base de temas prontos (farmácia e saúde). Conteúdo educativo e revisável.
+// Base de temas prontos (farmácia e saúde).
+//
+// Cada tema traz as fontes usadas. Revisão técnica: out/2026. Normas e
+// diretrizes mudam: confira a versão vigente antes de publicar.
 // ---------------------------------------------------------------------------
 export const TEMAS_PRONTOS = {
   "descarte-medicamentos": {
@@ -12,46 +15,62 @@ export const TEMAS_PRONTOS = {
     gancho: "Você sabe o que fazer com aquele remédio vencido esquecido na gaveta? 💊🗑️",
     slides: [
       ["Remédio vencido não vai pro lixo!", "Descubra o jeito certo de descartar medicamentos em casa."],
-      ["Por que isso importa?", "Medicamentos jogados no lixo comum, na pia ou no vaso podem contaminar solo e água."],
+      ["Por que isso importa?", "Medicamentos jogados no lixo comum, na pia ou no vaso podem contaminar o solo e a água."],
       ["Onde NÃO descartar", "❌ Lixo comum\n❌ Pia ou ralo\n❌ Vaso sanitário"],
-      ["Onde descartar", "✅ Pontos de coleta em farmácias e drogarias participantes da logística reversa (Decreto nº 10.388/2020)."],
-      ["Como levar", "Separe comprimidos, xaropes e pomadas. Caixas e bulas de papel podem ir para a reciclagem."],
-      ["E as agulhas?", "Seringas e agulhas devem ir em recipiente rígido e fechado. Pergunte na farmácia ou na UBS onde entregar."],
-      ["Dica de ouro", "Revise sua farmacinha a cada 6 meses e confira as datas de validade."],
+      ["Onde descartar", "✅ Nos coletores de farmácias e drogarias. O sistema de logística reversa foi criado pelo Decreto nº 10.388/2020."],
+      ["Como levar", "Leve o remédio na embalagem que fica em contato com ele: blister, frasco ou bisnaga. Não tire os comprimidos da cartela. A caixa de papel e a bula podem ir para a reciclagem."],
+      ["E as agulhas?", "Seringas, agulhas e lancetas não entram nesses coletores. Guarde em recipiente rígido e fechado e pergunte na UBS onde entregar."],
+      ["Dica de ouro", "Revise sua farmacinha de tempos em tempos e confira as datas de validade."],
     ],
+    mito: { afirmacao: "Posso jogar remédio vencido no vaso sanitário.", resposta: "MITO! Ele contamina a água. Leve a um coletor em farmácia." },
     hashtags: ["#descartedemedicamentos", "#logisticareversa", "#meioambiente", "#usoracional"],
+    fontes: [
+      "Decreto nº 10.388/2020 — sistema de logística reversa de medicamentos domiciliares vencidos ou em desuso.",
+      "Lei nº 12.305/2010 — Política Nacional de Resíduos Sólidos.",
+    ],
   },
   "antibioticos": {
     nome: "Uso correto de antibióticos",
     palavras: ["antibiótico", "antibiotico", "resistência", "bactéria", "infecção"],
     titulo: "Antibiótico: use do jeito certo",
-    gancho: "Melhorou no 3º dia e parou o antibiótico? Esse é um dos erros mais comuns. 👇",
+    gancho: "Antibiótico não serve para gripe nem resfriado. Sabia? 🦠",
     slides: [
-      ["Antibiótico: use do jeito certo", "4 cuidados que fazem toda a diferença."],
-      ["1. Respeite o tempo", "Use pelo período prescrito, mesmo que os sintomas melhorem antes."],
-      ["2. Respeite o horário", "Intervalos regulares mantêm o efeito do medicamento. Use alarmes no celular."],
-      ["3. Não guarde sobras", "Sobrou? Leve para um ponto de coleta. Não reutilize depois por conta própria."],
-      ["4. Não compartilhe", "O antibiótico certo depende da infecção e da pessoa. O que serviu para você pode não servir para outro."],
-      ["Resistência bacteriana", "O uso inadequado favorece bactérias resistentes, que deixam os tratamentos menos eficazes."],
+      ["Antibiótico: use do jeito certo", "Cuidados que fazem toda a diferença."],
+      ["Só para bactérias", "Antibiótico não trata vírus. Gripe, resfriado e a maioria das dores de garganta não melhoram com ele."],
+      ["Siga a prescrição", "Use a dose, o horário e o tempo indicados. Não pare nem prolongue por conta própria: se quiser mudar, fale com quem prescreveu."],
+      ["Respeite os horários", "Intervalos regulares mantêm o efeito do medicamento. Use alarmes no celular."],
+      ["Não guarde sobras", "Sobrou? Leve a um ponto de coleta. Não use depois sem nova avaliação."],
+      ["Não compartilhe", "O antibiótico certo depende da infecção e da pessoa. O que serviu para você pode não servir para outro."],
+      ["Resistência bacteriana", "O uso desnecessário ou inadequado favorece bactérias resistentes, que deixam os tratamentos menos eficazes."],
       ["Ficou com dúvida?", "Converse com seu farmacêutico sobre horários, alimentação e efeitos esperados."],
     ],
-    hashtags: ["#antibioticos", "#resistenciabacteriana", "#usoracionaldemedicamentos", "#saude"],
+    mito: { afirmacao: "Antibiótico cura gripe.", resposta: "MITO! Gripe é causada por vírus, e antibiótico só age contra bactérias." },
+    hashtags: ["#antibioticos", "#resistenciaantimicrobiana", "#usoracionaldemedicamentos", "#saude"],
+    fontes: [
+      "OMS — Resistência antimicrobiana (fichas informativas).",
+      "Anvisa — RDC nº 471/2021 (controle de antimicrobianos e retenção de receita).",
+    ],
   },
   "armazenamento": {
     nome: "Como guardar medicamentos em casa",
     palavras: ["guardar", "armazenar", "armazenamento", "farmacinha", "geladeira", "insulina"],
     titulo: "Onde você guarda seus remédios?",
-    gancho: "Banheiro e cozinha são os piores lugares para guardar remédio. Sabe por quê? 🤔",
+    gancho: "Banheiro e cozinha estão entre os piores lugares para guardar remédio. Sabe por quê? 🤔",
     slides: [
-      ["Onde você guarda seus remédios?", "O lugar errado pode reduzir a eficácia do medicamento."],
+      ["Onde você guarda seus remédios?", "O lugar errado pode estragar o medicamento antes da validade."],
       ["Inimigos do remédio", "🌡️ Calor\n💧 Umidade\n☀️ Luz direta"],
-      ["Evite", "Banheiro (umidade do banho), cozinha (calor do fogão) e porta-luvas do carro."],
-      ["Prefira", "Local fresco, seco, arejado e longe da luz, como um armário de quarto."],
+      ["Evite", "Banheiro (vapor do banho), cozinha (calor do fogão) e carro."],
+      ["Prefira", "Local fresco, seco, arejado e longe da luz, como um armário de quarto. Siga a temperatura indicada na embalagem."],
       ["Embalagem original", "Mantenha na caixa com a bula: ela protege e guarda lote e validade."],
-      ["Insulina", "Frascos fechados na geladeira (2 °C a 8 °C), longe do congelador e fora da porta. Siga a orientação da bula sobre o frasco em uso."],
+      ["Insulina", "Fechada: na geladeira (2 °C a 8 °C), nunca no congelador nem na porta. Em uso: siga a bula, pois muitas podem ficar em temperatura ambiente por um período limitado."],
       ["Segurança", "Sempre fora do alcance de crianças e animais de estimação."],
     ],
+    mito: { afirmacao: "O banheiro é um bom lugar para guardar remédios.", resposta: "MITO! O vapor do banho e o calor estragam o medicamento." },
     hashtags: ["#farmacinhacaseira", "#armazenamento", "#insulina", "#segurancadopaciente"],
+    fontes: [
+      "Bulas dos medicamentos (seção \"Onde, como e por quanto tempo posso guardar este medicamento?\").",
+      "Sociedade Brasileira de Diabetes — Diretrizes (técnica de aplicação, conservação e transporte de insulina).",
+    ],
   },
   "pressao-arterial": {
     nome: "Como medir a pressão corretamente",
@@ -60,14 +79,18 @@ export const TEMAS_PRONTOS = {
     gancho: "Café, conversa e pernas cruzadas podem alterar a medida da sua pressão. ☕🩺",
     slides: [
       ["Você mede a pressão do jeito certo?", "Pequenos detalhes mudam o resultado."],
-      ["Antes de medir", "Descanse 5 minutos sentado e esvazie a bexiga."],
-      ["30 minutos antes, evite", "☕ Café\n🚬 Cigarro\n🏃 Exercício físico"],
-      ["Posição", "Costas apoiadas, pés no chão, pernas descruzadas e braço apoiado na altura do coração."],
-      ["Durante a medida", "Fique em silêncio e use o manguito do tamanho adequado ao seu braço."],
+      ["Antes de medir", "Descanse de 3 a 5 minutos sentado, em ambiente calmo, e esvazie a bexiga."],
+      ["Evite antes", "☕ Café, álcool, comida e cigarro: 30 minutos antes\n🏃 Exercício físico: 60 a 90 minutos antes"],
+      ["Posição", "Costas apoiadas, pernas descruzadas, pés no chão e braço apoiado na altura do coração, com a palma para cima."],
+      ["Durante a medida", "Não fale e use o manguito do tamanho certo para o seu braço, sobre a pele, sem roupa apertando."],
       ["Anote", "Registre data, hora e valores para levar à consulta."],
-      ["Importante", "Não altere nem suspenda remédios por conta própria. Medidas alteradas devem ser avaliadas pelo médico."],
+      ["Importante", "Não mude nem suspenda remédios por conta própria. Valores alterados devem ser avaliados pelo médico."],
     ],
+    mito: { afirmacao: "Posso medir a pressão logo depois de tomar café.", resposta: "MITO! Espere pelo menos 30 minutos." },
     hashtags: ["#hipertensao", "#pressaoarterial", "#afericaodepressao", "#cuidadofarmaceutico"],
+    fontes: [
+      "Sociedade Brasileira de Cardiologia — Diretrizes Brasileiras de Hipertensão Arterial (seção de medida da pressão no consultório).",
+    ],
   },
   "automedicacao": {
     nome: "Riscos da automedicação",
@@ -78,43 +101,57 @@ export const TEMAS_PRONTOS = {
       ["Automedicação: cuidado!", "Por que tomar remédio por conta própria pode ser arriscado."],
       ["Mascara sintomas", "Aliviar a dor pode esconder um problema que precisa de diagnóstico."],
       ["Interações", "Um medicamento pode interferir no efeito de outro que você já usa."],
-      ["Dose errada", "Até medicamentos comuns, como o paracetamol, podem causar danos ao fígado em excesso."],
-      ["Sem receita ≠ sem risco", "Medicamentos isentos de prescrição também exigem orientação."],
+      ["Dose errada", "Mesmo remédios comuns têm dose máxima. O paracetamol em excesso, por exemplo, pode causar lesão grave no fígado."],
+      ["Sem receita ≠ sem risco", "Medicamentos isentos de prescrição (MIPs) também têm contraindicações e merecem orientação."],
       ["O farmacêutico ajuda", "Ele avalia seus sintomas, os remédios que você já usa e indica quando procurar o médico."],
     ],
+    mito: { afirmacao: "Remédio vendido sem receita não faz mal.", resposta: "MITO! Ele também tem dose máxima, contraindicações e interações." },
     hashtags: ["#automedicacao", "#usoracional", "#farmaceuticoorienta", "#saude"],
+    fontes: [
+      "Anvisa — RDC nº 98/2016 (critérios de enquadramento dos medicamentos isentos de prescrição).",
+      "CFF — Resolução nº 586/2013 (prescrição farmacêutica).",
+    ],
   },
   "protetor-solar": {
     nome: "Protetor solar no dia a dia",
     palavras: ["protetor", "filtro solar", "fps", "sol", "fotoproteção"],
     titulo: "Protetor solar: você usa certo?",
-    gancho: "Passar protetor só na praia? A pele sente o sol todos os dias. ☀️",
+    gancho: "Passar protetor só na praia? A pele recebe radiação todos os dias. ☀️",
     slides: [
       ["Protetor solar: você usa certo?", "Guia rápido de fotoproteção."],
-      ["Todos os dias", "Inclusive em dias nublados e dentro de casa perto de janelas."],
-      ["FPS", "Prefira FPS 30 ou mais, com proteção UVA e UVB."],
-      ["Quantidade", "Para o rosto, cerca de uma colher de chá. Pouco produto = menos proteção."],
-      ["Reaplique", "A cada 2 horas e após suor ou contato com água."],
-      ["Não esqueça", "Orelhas, pescoço, colo, dorso das mãos e pés."],
-      ["Dúvidas?", "Peça ajuda para escolher a textura ideal para sua pele."],
+      ["Todos os dias", "Inclusive em dias nublados: boa parte da radiação ultravioleta atravessa as nuvens."],
+      ["FPS", "Use FPS 30 ou mais, com proteção UVA. No Brasil, a proteção UVA deve ser de pelo menos 1/3 do FPS."],
+      ["Quantidade", "Use cerca de 1 colher de chá para rosto e pescoço. Pouco produto protege bem menos do que o rótulo promete."],
+      ["Reaplique", "A cada 2 horas de exposição e após suar, nadar ou se secar com toalha."],
+      ["Não esqueça", "Orelhas, nuca, colo, dorso das mãos e pés."],
+      ["Vai além do filtro", "Chapéu, óculos escuros, roupas e evitar o sol forte entre 10h e 16h completam a proteção."],
     ],
+    mito: { afirmacao: "Em dia nublado não preciso de protetor solar.", resposta: "MITO! Boa parte da radiação ultravioleta atravessa as nuvens." },
     hashtags: ["#protetorsolar", "#fotoprotecao", "#cuidadoscomapele", "#dermocosmeticos"],
+    fontes: [
+      "Sociedade Brasileira de Dermatologia — Consenso Brasileiro de Fotoproteção.",
+      "Anvisa — RDC nº 30/2012 (protetores solares).",
+    ],
   },
   "interacoes-alimentos": {
     nome: "Interações entre medicamentos e alimentos",
     palavras: ["interação", "interacao", "alimento", "leite", "álcool", "alcool", "jejum"],
     titulo: "Remédio e comida combinam?",
-    gancho: "Tomar remédio com leite, suco ou café pode mudar o efeito dele. 🥛☕",
+    gancho: "Tomar remédio com leite, suco ou bebida alcoólica pode mudar o efeito dele. 🥛🍷",
     slides: [
       ["Remédio e comida combinam?", "Exemplos de interações que merecem atenção."],
-      ["Levotiroxina", "Em geral, tomada em jejum, de 30 a 60 minutos antes do café da manhã."],
-      ["Leite e cálcio", "Podem reduzir a absorção de alguns antibióticos, como tetraciclinas e ciprofloxacino."],
-      ["Varfarina", "Mantenha constante o consumo de folhas verdes escuras, ricas em vitamina K. Não corte nem exagere de repente."],
-      ["Álcool", "Pode potencializar efeitos ou causar reações com diversos medicamentos, como o metronidazol."],
-      ["Toranja (grapefruit)", "Pode aumentar o nível de alguns medicamentos no sangue, como certas estatinas."],
+      ["Levotiroxina", "Em geral, em jejum, de 30 a 60 minutos antes do café da manhã, sempre no mesmo horário."],
+      ["Leite e cálcio", "Reduzem a absorção de alguns antibióticos, como tetraciclinas e ciprofloxacino. Respeite o intervalo da bula."],
+      ["Varfarina", "Mantenha estável o consumo de folhas verdes escuras, ricas em vitamina K. Não corte nem exagere de repente."],
+      ["Álcool", "Pode somar efeitos de sedativos e antialérgicos e causar reações com alguns medicamentos, como o metronidazol."],
+      ["Toranja (grapefruit)", "Pode aumentar o nível de alguns medicamentos no sangue, como a sinvastatina."],
       ["Regra de ouro", "Pergunte ao farmacêutico como tomar cada medicamento."],
     ],
+    mito: { afirmacao: "Tomar qualquer antibiótico com leite não muda nada.", resposta: "MITO! O cálcio reduz a absorção de alguns, como as tetraciclinas." },
     hashtags: ["#interacaomedicamentosa", "#nutricaoesaude", "#usoracional", "#farmaciaclinica"],
+    fontes: [
+      "Bulas dos medicamentos citados (levotiroxina, tetraciclinas, ciprofloxacino, varfarina, metronidazol, sinvastatina).",
+    ],
   },
   "vacinacao-adulto": {
     nome: "Vacinação do adulto",
@@ -123,13 +160,20 @@ export const TEMAS_PRONTOS = {
     gancho: "Sua caderneta de vacinação está em dia? Adulto também precisa se vacinar. 💉",
     slides: [
       ["Vacina não é só coisa de criança", "Confira se você está protegido."],
-      ["Por que vacinar?", "Vacinas protegem você e quem convive com você, inclusive pessoas mais vulneráveis."],
-      ["Exemplos do calendário adulto", "Hepatite B, dT (difteria e tétano), tríplice viral, febre amarela e influenza (anual)."],
-      ["Perdeu a caderneta?", "Procure a UBS ou um serviço de vacinação para avaliar o que precisa ser atualizado."],
-      ["Vacinação em farmácias", "Farmácias habilitadas podem oferecer o serviço com farmacêutico capacitado."],
+      ["Por que vacinar?", "Vacinas protegem você e quem convive com você, inclusive as pessoas mais vulneráveis."],
+      ["No SUS, para adultos", "Hepatite B, dupla adulto (difteria e tétano, reforço a cada 10 anos), tríplice viral e febre amarela, conforme idade e histórico."],
+      ["Campanhas", "Gripe (influenza) e covid-19 seguem os grupos e as regras de cada campanha do Ministério da Saúde."],
+      ["Perdeu a caderneta?", "Procure a UBS: a equipe avalia o que precisa ser atualizado."],
+      ["Vacinação em farmácias", "Farmácias licenciadas para o serviço podem vacinar, com farmacêutico capacitado."],
       ["Leve sua caderneta", "Ela é seu histórico de proteção. Guarde uma foto no celular!"],
     ],
+    mito: { afirmacao: "Adulto não precisa mais tomar vacina.", resposta: "MITO! Há vacinas e reforços indicados para adultos, como a dupla adulto a cada 10 anos." },
     hashtags: ["#vacinacao", "#vacinaadulto", "#imunizacao", "#saudepublica"],
+    fontes: [
+      "Ministério da Saúde — Calendário Nacional de Vacinação (adulto), Programa Nacional de Imunizações.",
+      "Anvisa — RDC nº 197/2017 (serviços de vacinação humana).",
+      "Lei nº 13.021/2014 (farmácia como estabelecimento de saúde).",
+    ],
   },
   "servicos-farmaceuticos": {
     nome: "Serviços farmacêuticos",
@@ -139,12 +183,18 @@ export const TEMAS_PRONTOS = {
     slides: [
       ["Sua farmácia vai além do balcão", "Conheça os serviços farmacêuticos."],
       ["Aferição de pressão", "Medida feita com técnica correta e registro para acompanhamento."],
-      ["Glicemia capilar", "Ajuda no acompanhamento de quem tem diabetes, com orientação."],
-      ["Revisão de medicamentos", "Avaliação de todos os remédios que você usa, buscando interações e duplicidades."],
+      ["Glicemia capilar", "Ajuda no acompanhamento de quem tem diabetes, com orientação. Não serve, sozinha, para diagnóstico."],
+      ["Revisão da farmacoterapia", "Avaliação de todos os remédios que você usa, buscando interações, duplicidades e problemas de uso."],
       ["Orientação personalizada", "Como e quando tomar, o que esperar e como organizar os horários."],
       ["Agende seu atendimento", "Fale com a gente pelo direct ou pelo WhatsApp."],
     ],
-    hashtags: ["#servicosfarmaceuticos", "#consultafarmaceutica", "#cuidadofarmaceutico", "#atencaofarmaceutica"],
+    mito: { afirmacao: "Farmacêutico só vende remédio.", resposta: "MITO! Ele também faz consulta, revisão dos medicamentos e acompanhamento." },
+    hashtags: ["#servicosfarmaceuticos", "#consultafarmaceutica", "#cuidadofarmaceutico", "#farmaciaclinica"],
+    fontes: [
+      "Lei nº 13.021/2014.",
+      "Anvisa — RDC nº 44/2009 (boas práticas e serviços farmacêuticos em farmácias e drogarias).",
+      "CFF — Resolução nº 585/2013 (atribuições clínicas do farmacêutico).",
+    ],
   },
 };
 
@@ -203,11 +253,14 @@ const HASHTAGS_NICHO = {
   outro: ["#dicas", "#conteudo", "#instagram", "#aprendanoinsta"],
 };
 
+// Não existe um "melhor horário" universal: depende do seu público.
+// Estes são pontos de partida; o ideal é conferir no Insights do perfil.
+const NOTA_HORARIO = " (ponto de partida: confira em Insights → Seguidores os horários em que o seu público está on-line)";
 const HORARIOS = {
-  post: "Terça a quinta, entre 11h e 13h ou 18h e 20h",
-  carrossel: "Terça a quinta, entre 18h e 21h (horário em que as pessoas salvam mais)",
-  reels: "Quarta a sexta, entre 18h e 21h",
-  stories: "Distribua ao longo do dia: 8h, 12h e 19h",
+  post: "Dias úteis, no almoço ou no início da noite" + NOTA_HORARIO,
+  carrossel: "Dias úteis, no início da noite" + NOTA_HORARIO,
+  reels: "Fim de tarde e início da noite" + NOTA_HORARIO,
+  stories: "Distribua ao longo do dia, por exemplo de manhã, no almoço e à noite" + NOTA_HORARIO,
 };
 
 const AVISO_SAUDE = "⚠️ Conteúdo informativo. Não substitui a orientação de um profissional de saúde.";
@@ -227,6 +280,13 @@ function hashTexto(texto) {
   let h = 0;
   for (const c of texto) h = (h * 31 + c.codePointAt(0)) | 0;
   return h;
+}
+
+// Versão curta de uma fonte para caber na legenda.
+function fonteCurta(fonte) {
+  const [quem, oque] = fonte.replace(/\.$/, "").split(" — ");
+  if (!oque || /\b(Lei|Decreto|RDC|Resolução)\b/.test(quem)) return quem.split(" (")[0];
+  return `${quem} — ${oque.split(" (")[0]}`;
 }
 
 function capitalizar(texto) {
@@ -310,6 +370,7 @@ export function gerarOffline(briefing) {
     formato === "carrossel" ? "👉 Arraste para o lado e confira todos os detalhes." : null,
     cidade && objetivo === "vender" ? `📍 Atendemos em ${cidade}.` : null,
     cta,
+    pronto ? `📚 Fontes: ${pronto.fontes.map(fonteCurta).join("; ")}.` : null,
     ehSaude ? AVISO_SAUDE : null,
     marca ? `— ${marca}${handle ? ` (${handle})` : ""}` : null,
   ].filter(Boolean);
@@ -336,8 +397,11 @@ export function gerarOffline(briefing) {
     ehSaude ? "Evite promessas de cura ou resultado garantido e não indique medicamentos de prescrição ao público." : null,
     formato === "carrossel" ? "Use a capa com título grande e contraste alto: ela decide se a pessoa vai arrastar." : null,
     formato === "reels" ? "Coloque legenda na tela: muita gente assiste sem som." : null,
-    "Responda os comentários na primeira hora para aumentar o alcance.",
+    "Responda os comentários e as mensagens: conversa com o público fortalece o perfil.",
+    pronto ? null : "Tema sem base pronta: o texto é só uma estrutura. Escreva o conteúdo técnico com base em fontes oficiais e cite-as.",
   ].filter(Boolean);
+
+  const fontes = pronto ? pronto.fontes : [];
 
   return {
     titulo,
@@ -352,6 +416,7 @@ export function gerarOffline(briefing) {
     textoAlternativo: `Arte com o título "${titulo}" sobre ${pronto ? pronto.nome.toLowerCase() : temaLimpo}${marca ? `, de ${marca}` : ""}.`,
     melhorHorario: HORARIOS[formato] || HORARIOS.post,
     observacoes,
+    fontes,
   };
 }
 
@@ -377,7 +442,8 @@ function montarStories(tema, pronto, cta) {
     { tipo: "Abertura", texto: `Hoje o papo é sobre ${nome}! Fica até o final 👀` },
     { tipo: "Enquete", texto: `Você já teve dúvida sobre ${nome}? (Sim / Não)` },
     { tipo: "Conteúdo", texto: `${dica[0]}: ${dica[1].replace(/\n/g, " ")}` },
-    { tipo: "Quiz", texto: pronto ? `Verdade ou mito: "${pronto.slides[2][0]}" — resposta no próximo story!` : `Verdade ou mito sobre ${tema}? Responda!` },
+    { tipo: "Quiz", texto: pronto ? `Verdade ou mito: "${pronto.mito.afirmacao}" Responda na enquete!` : `Verdade ou mito sobre ${tema}? Responda!` },
+    ...(pronto ? [{ tipo: "Resposta do quiz", texto: pronto.mito.resposta }] : []),
     { tipo: "Caixa de perguntas", texto: `Mande sua dúvida sobre ${nome} que eu respondo aqui! 💬` },
     { tipo: "Chamada", texto: cta },
   ];
