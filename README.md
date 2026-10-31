@@ -29,6 +29,20 @@ Para outros temas, o modo offline monta uma estrutura-guia para você completar.
 
 ## Como usar
 
+### Online (Vercel)
+
+O gerador está publicado na Vercel, no time **MGM** (projeto `gerador-conteudo-instagram`). É só abrir o endereço no navegador, no computador ou no celular.
+
+Para ativar o modo IA na versão online:
+
+1. No painel da Vercel, abra o projeto `gerador-conteudo-instagram` → **Settings → Environment Variables**.
+2. Crie a variável `ANTHROPIC_API_KEY` com a sua chave da API da Anthropic.
+3. Em **Deployments**, clique nos três pontos do último deploy → **Redeploy**.
+
+A chave fica só no servidor da Vercel e nunca vai para o navegador.
+
+### No seu computador
+
 Precisa do [Node.js](https://nodejs.org) 18 ou mais recente.
 
 ```bash
@@ -36,9 +50,7 @@ npm install
 npm start
 ```
 
-Abra http://localhost:3000.
-
-Para ativar o modo IA, defina a chave antes de iniciar (ela fica só no servidor, nunca vai para o navegador):
+Abra http://localhost:3000. Para ativar o modo IA, defina a chave antes de iniciar:
 
 ```bash
 export ANTHROPIC_API_KEY="sua-chave"
@@ -46,8 +58,6 @@ npm start
 ```
 
 Opcional: `PORT` muda a porta e `CLAUDE_MODEL` muda o modelo (padrão `claude-opus-5-5`).
-
-> Também dá para publicar só a pasta `public/` em uma hospedagem estática (GitHub Pages, por exemplo). Nesse caso, apenas o modo offline fica disponível.
 
 ## Testes
 
@@ -58,7 +68,10 @@ npm test
 ## Estrutura
 
 ```
-server.js           servidor HTTP + rota /api/gerar (Claude)
+server.js           servidor local (npm start)
+api/                funções da Vercel (/api/status e /api/gerar)
+lib/claude.js       lógica do modo IA, usada pelo servidor local e pela Vercel
+vercel.json         configuração da publicação na Vercel
 public/
   index.html        interface
   app.js            lógica da interface
