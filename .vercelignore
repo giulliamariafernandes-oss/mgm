@@ -1,0 +1,4 @@
+# server.js é só para uso local; na Vercel as rotas ficam em api/
+server.js
+test/
+docs/
