@@ -68,3 +68,27 @@ test("pedido para a IA inclui o briefing", () => {
   assert.match(p, /Campinas/);
   assert.match(p, /Número de slides: 7/);
 });
+
+test("todo tema pronto tem fontes, mito e passa nos pontos revisados", async () => {
+  const { TEMAS_PRONTOS } = await import("../public/gerador.js");
+  for (const [id, t] of Object.entries(TEMAS_PRONTOS)) {
+    assert.ok(t.fontes.length >= 1, `${id} sem fontes`);
+    assert.ok(t.mito.afirmacao && t.mito.resposta, `${id} sem mito`);
+  }
+  const texto = (id) => TEMAS_PRONTOS[id].slides.flat().join(" ");
+  // Exercício: 60 a 90 min antes da medida (Diretrizes Brasileiras de Hipertensão).
+  assert.match(texto("pressao-arterial"), /60 a 90 minutos/);
+  // Descarte: manter o comprimido na embalagem primária.
+  assert.match(texto("descarte-medicamentos"), /Não tire os comprimidos da cartela/);
+  // Antibiótico não trata vírus.
+  assert.match(texto("antibioticos"), /não trata vírus/i);
+});
+
+test("legenda de tema pronto cita as fontes; tema livre avisa que falta base", () => {
+  const pronto = gerarOffline({ ...briefingBase, tema: "protetor solar" });
+  assert.match(pronto.legenda, /📚 Fontes: .*RDC nº 30\/2012/);
+  assert.ok(pronto.fontes.length >= 1);
+  const livre = gerarOffline({ ...briefingBase, tema: "saúde do sono" });
+  assert.deepEqual(livre.fontes, []);
+  assert.ok(livre.observacoes.some((o) => /fontes oficiais/.test(o)));
+});
